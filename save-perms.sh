@@ -7,9 +7,6 @@ usage()
 	exit 1
 }
 
-
-
-
 if [ $USER != root ] ; then 
         printf "\nyou must be root; exit script!\n$minus\n\n"
         exit 1 
@@ -19,6 +16,5 @@ if [[ -z "$1" ]] || [[ "$1" = "-h"  ]] ; then
        usage
        exit 1
 fi
-
 
 exit 1
