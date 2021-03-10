@@ -12,7 +12,7 @@ printf "\n$minus\nsearch for user with elevated sudo rights\n\n$minus\n"
 # egrep -v '#|^$|Defaults' /etc/sudoers /etc/sudoers.?/*
 
 #variable to run the command only once and then have to filter only
-c=$(for i in `find /etc/sudoers.?/* /etc/sudoers` ;do printf "\nsearch in file: $i \n" ;cat $i |egrep -v '#|^$|Defaults' | sed -e 's/\%/\%\%/' || echo "nothing found in $i" ;done)
+c=$(for i in `find /etc/sudoers.?/* /etc/sudoers` ;do printf "\nsearch in file: $i \n" ;cat $i | sed -e 's/\%/\%\%/' |egrep -v '#|^$|Defaults' || echo "nothing found in $i" ;done)
 
 #echo variable $c
 printf "$c"
