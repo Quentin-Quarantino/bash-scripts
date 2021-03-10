@@ -28,6 +28,6 @@ printf "$c\n"
 printf "\n$minus\nsearch for users and groups with dangerous sudoer rules\n\n$minus\n"
 
 printf "$c" |grep -v ^root |egrep -i --color 'ALL$|vi|vim|NOPASSWD|less|more|mv|cp|su - $|su $|su - root|su ,|su - ,|chmod|chown|rm|\/bin/*|\*,|\*$'
-
+ 
 echo
 exit 1
