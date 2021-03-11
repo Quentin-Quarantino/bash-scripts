@@ -2,7 +2,7 @@
 
 re='^[0-9]+$'
 d=$(date +"%Y%m%d")
-f=/root/perm-save-$d.sh
+F=/root/perm-save-$d.sh
 minus="--------------------------------------------------------------------------------"
 usage() 
 {
@@ -34,9 +34,13 @@ if [[ ! -z "$2" ]]  ; then
 	fi
 	Max="-maxdepth $2"
 fi
+#echo #!bin/bash in base64
+echo "IyEvYmluL2Jhc2gK" |base64 -d > "$F"
+echo "F=$F" >> "$F"
+echo "c2VkIDEsNWQgJEYgPiRGLXRtcApjZCAvIDtzZXRmYWNsICAtLXJlc3RvcmU9JEYtdG1wIApleGl0IDEK" |base64 -d >> "$F"
+echo >>"$F"
 
-printf "#!/bin/bash\nd=\$(date +'%Y%m%d')\necho 'create tmp file' \nsed '1,15{/^$/d}' \$0 >tmprestore\$d.tmp" > \$f
-
-for i in `find $1 $Max`  ;do getfacl $i 2>/dev/null >>$f ;done
+for i in `find $1 $Max`  ;do getfacl $i 2>/dev/null >>$F ;done
+chmod +x "$F"
 
 exit 1
