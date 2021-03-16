@@ -19,7 +19,7 @@ run()
 	
 	echo $(date) >/saveconf/date$D/net/ipaddrshow ;ip a >>/saveconf/date$D/ipaddrshow
 	echo $(date) >/saveconf/date$D/net/route-n ;route -n >>/saveconf/date$D/route-n
-
+	
 	# general Blockdevice and disks
 	echo $(date) >/saveconf/date$D/block/df-hP ;df -hP >>/saveconf/date$D/block/df-hP
 	echo $(date) >/saveconf/date$D/block/df-inodes ;df -i >>/saveconf/date$D/block/df-inodes
@@ -43,7 +43,8 @@ run()
 	fi 
 	# use custom if you want log somthin like application versions or teamd/bonding stuff 
 	if [ "$2" = "--custom" ] || [ "$3" = "--custom" ] ; then
-
+		## If it is a hardware server, the status/configuration of the disks and LD can be displayed.
+		# ssacli ctrl all show config 
 	fi
 	
 
