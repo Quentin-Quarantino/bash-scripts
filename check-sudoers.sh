@@ -23,8 +23,6 @@ c=$(for i in `find /etc/sudoers.?/* /etc/sudoers` ;do printf "\nsearch in file: 
 #echo variable $c
 printf "$c\n" 
 
-# noch weiter ausbessern um zu erkennen ob jemand "ALL", "NOPASSWD", "su -", "su - root" oder mit sudo rechten vim/less/more/cp/mv verwenden kann!!!!
-
 printf "\n$minus\nsearch for users and groups with dangerous sudoer rules\n\n$minus\n"
 
 printf "$c" |grep -v ^root |egrep -i --color 'ALL$|vi|vim|NOPASSWD|less|more|mv|cp|su - $|su $|su - root|su ,|su - ,|chmod|chown|rm|\/bin/*|\*,|\*$'
