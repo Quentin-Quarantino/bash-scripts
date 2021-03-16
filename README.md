@@ -1,2 +1,2 @@
 # bash-scripts
-bash-scripts-libary
+some simple bash scripts
